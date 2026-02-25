@@ -1,0 +1,64 @@
+/* Page Background */
+body{
+    font-family:'Segoe UI',sans-serif;
+    background: linear-gradient(135deg,#dbeafe,#f0f9ff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    margin:0;
+}
+
+/* Login Box */
+.box{
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    width:320px;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    text-align:center;
+    transition:.3s;
+}
+
+.box:hover{
+    transform: translateY(-5px);
+    box-shadow:0 20px 50px rgba(0,0,0,0.2);
+}
+
+/* Inputs */
+input{
+    width:100%;
+    padding:12px;
+    margin:12px 0;
+    border-radius:10px;
+    border:1px solid #d1d5db;
+    outline:none;
+    font-size:15px;
+    transition:.25s;
+}
+
+input:focus{
+    border-color:#3b82f6;
+    box-shadow:0 0 0 3px rgba(59,130,246,0.2);
+}
+
+/* Button */
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    background: linear-gradient(135deg,#22c55e,#16a34a);
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    background: linear-gradient(135deg,#16a34a,#15803d);
+}

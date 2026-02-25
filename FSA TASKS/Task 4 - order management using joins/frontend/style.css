@@ -1,0 +1,92 @@
+/* Global */
+body{
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin:0;
+    padding:40px;
+    background: linear-gradient(135deg,#eef2f7,#d9e4f5);
+    color:#2b2b2b;
+}
+
+/* Title */
+h1{
+    text-align:center;
+    margin-bottom:40px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:#1e293b;
+}
+
+/* Card Container */
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    margin-bottom:40px;
+}
+
+/* Card Style */
+.card{
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    width:260px;
+    font-size:18px;
+    text-align:center;
+    transition: all .3s ease;
+    border:1px solid rgba(255,255,255,0.4);
+}
+
+.card:hover{
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Table */
+table{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Table Header */
+th{
+    padding:14px;
+    background: linear-gradient(135deg,#3b82f6,#6366f1);
+    color:white;
+    font-weight:600;
+    letter-spacing:.5px;
+    border:none;
+}
+
+/* Table Cells */
+td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+    text-align:center;
+    transition:.2s;
+}
+
+/* Row Hover */
+tr:hover td{
+    background:#f1f5ff;
+}
+
+/* Last Row Fix */
+tr:last-child td{
+    border-bottom:none;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .cards{
+        flex-direction:column;
+        align-items:center;
+    }
+}

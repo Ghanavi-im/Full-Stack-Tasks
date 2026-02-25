@@ -1,0 +1,41 @@
+body{
+  font-family: Arial;
+  padding:20px;
+  background:#f4f6f9;
+}
+
+h1{
+  text-align:center;
+}
+
+.controls{
+  margin-bottom:20px;
+}
+
+select,button{
+  padding:8px;
+  margin-right:10px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+}
+
+th,td{
+  padding:12px;
+  border:1px solid #ddd;
+  text-align:center;
+}
+
+th{
+  background:#333;
+  color:white;
+}
+
+ul{
+  background:white;
+  padding:15px;
+  width:300px;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Student Dashboard</h1>
+
+<div class="controls">
+  <select id="sort">
+    <option value="">Sort</option>
+    <option value="name">Name</option>
+    <option value="date">Join Date</option>
+  </select>
+
+  <select id="dept">
+    <option>All</option>
+    <option>CSE</option>
+    <option>IT</option>
+    <option>ECE</option>
+  </select>
+
+  <button onclick="loadStudents()">Apply</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody"></tbody>
+</table>
+
+<h2>Department Counts</h2>
+<ul id="counts"></ul>
+
+<script src="script.js"></script>
+</body>
+</html>

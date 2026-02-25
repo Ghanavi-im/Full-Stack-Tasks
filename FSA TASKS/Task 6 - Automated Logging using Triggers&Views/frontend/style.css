@@ -1,0 +1,63 @@
+/* Page Layout */
+body{
+    font-family:'Segoe UI',sans-serif;
+    padding:40px;
+    margin:0;
+    background: linear-gradient(120deg,#eef2ff,#e0f2fe);
+    color:#1f2937;
+}
+
+/* Heading */
+h1{
+    text-align:center;
+    font-weight:600;
+    letter-spacing:1px;
+    margin-bottom:30px;
+    color:#0f172a;
+}
+
+/* Table Container Effect */
+table{
+    width:70%;
+    margin:0 auto;
+    border-collapse:separate;
+    border-spacing:0;
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* Header */
+th{
+    padding:14px;
+    background: linear-gradient(135deg,#6366f1,#3b82f6);
+    color:white;
+    font-weight:600;
+    letter-spacing:.5px;
+    border:none;
+}
+
+/* Cells */
+td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+    transition:.2s;
+}
+
+/* Row Hover Effect */
+tr:hover td{
+    background:#f1f5ff;
+}
+
+/* Last Row Fix */
+tr:last-child td{
+    border-bottom:none;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    table{
+        width:100%;
+    }
+}
