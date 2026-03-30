@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Membership Engine</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">Membership Engine Admin</a>
+        <nav>
+            <a href="#" id="logout-btn">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <div class="dashboard-header">
+            <h2>Admin Dashboard</h2>
+        </div>
+
+        <section class="mb-2">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.4rem;">Manage Plans</h3>
+                <button class="btn" onclick="document.getElementById('add-plan-form-container').classList.toggle('hidden')">+ Add Plan</button>
+            </div>
+            
+            <div id="add-plan-form-container" class="card hidden" style="max-width: 500px; margin-bottom: 2rem;">
+                <h4 style="margin-bottom: 1.5rem; color: var(--text-main);">Create New Plan</h4>
+                <form id="add-plan-form">
+                    <div class="form-group">
+                        <label>Plan Name</label>
+                        <input type="text" id="plan-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Price ($)</label>
+                        <input type="number" step="0.01" id="plan-price" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Duration (Days)</label>
+                        <input type="number" id="plan-duration" required>
+                    </div>
+                    <button type="submit" class="btn btn-full">Create Plan</button>
+                </form>
+            </div>
+
+            <div id="plans-container" class="grid">
+                <!-- Admin Plans injected here -->
+            </div>
+        </section>
+
+        <section class="mb-2">
+            <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">All Users</h3>
+            <div class="card" style="padding: 0; overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid #E5E7EB;">
+                            <th style="padding: 1rem;">ID</th>
+                            <th style="padding: 1rem;">Name</th>
+                            <th style="padding: 1rem;">Email</th>
+                            <th style="padding: 1rem;">Role</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-tbody">
+                        <!-- Users injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="mb-2">
+            <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">All Subscriptions</h3>
+            <div class="card" style="padding: 0; overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 1px solid #E5E7EB;">
+                            <th style="padding: 1rem;">ID</th>
+                            <th style="padding: 1rem;">User</th>
+                            <th style="padding: 1rem;">Plan</th>
+                            <th style="padding: 1rem;">Start Date</th>
+                            <th style="padding: 1rem;">End Date</th>
+                            <th style="padding: 1rem;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="subs-tbody">
+                        <!-- Subs injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!isLoggedIn() || localStorage.getItem('role') !== 'Admin') {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            document.getElementById('logout-btn').addEventListener('click', logout);
+            
+            // Load Admin Data
+            loadPlans(false);
+            loadAdminUsers();
+            loadAdminSubscriptions();
+
+            // Handle add plan form
+            const addPlanForm = document.getElementById('add-plan-form');
+            if(addPlanForm) {
+                addPlanForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    await createPlan();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
